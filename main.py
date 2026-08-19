@@ -9,7 +9,7 @@ ROUTER_URL = "https://api.b.ai/v1/chat/completions"
 TARGET_MODEL = (  
     "bai/deepseek-v4-flash"
 )
-INTERNAL_9ROUTER_KEY = (  
+INTERNAL_ROUTER_KEY = (  
     "your-internal-key"
 )
 PUBLIC_API_KEY = (  
@@ -55,7 +55,7 @@ async def proxy_chat(request: Request):
           "POST",
           ROUTER_URL,
           json=body,
-          headers={"Authorization": f"Bearer {INTERNAL_9ROUTER_KEY}"},
+          headers={"Authorization": f"Bearer {INTERNAL_ROUTER_KEY}"},
       ) as response:
         async for chunk in response.aiter_bytes():
           yield chunk
